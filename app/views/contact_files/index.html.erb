@@ -1,0 +1,27 @@
+<h1>Imported Files</h1>
+<table>
+  <thead>
+    <tr>
+      <th>File Name</th>
+      <th>Status</th>
+      <th>Errors</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @contact_files.each do |contact_file| %>
+      <tr>
+        <td><%= contact_file.file.filename %></td>
+        <td><%= contact_file.status.humanize %></td>
+        <td>
+          <% if contact_file.error_messages.present? %>
+            <%= link_to 'View Errors', contact_file_path(contact_file) %>
+          <% else %>
+            No errors
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= paginate @contact_files %>

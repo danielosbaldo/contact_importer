@@ -1,0 +1,15 @@
+<h2>Contact File: <%= @contact_file.file.filename %></h2>
+<h3>Status: <%= @contact_file.status.humanize %></h3>
+
+<% if @contact_file.error_messages.present? %>
+  <h4>Error Messages:</h4>
+  <ul>
+    <% @contact_file.error_messages.each do |error| %>
+      <li>
+        <%= "Row: #{error[:row].values.join(', ')} - Errors: #{error[:errors].join(', ')}" %>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>No errors found.</p>
+<% end %>

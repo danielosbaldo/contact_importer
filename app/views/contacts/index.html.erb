@@ -1,0 +1,9 @@
+<h1>Contacts</h1>
+
+<%= link_to 'Import Contacts', new_contact_path, class: 'btn btn-primary', role: 'button', 'aria-disabled': 'false' %>
+
+<div id="contacts-list">
+  <%= render 'contacts_list' %>
+</div>
+
+<%= turbo_stream_from current_user.contacts %>
